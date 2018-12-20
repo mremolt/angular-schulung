@@ -1,0 +1,7 @@
+<div>
+  <form [formGroup]="form" (submit)="formSubmitted($event)">
+    <label for="jokes-input">Input number of jokes: </label>
+    <input type="number" id="jokes-input" formControlName="jokes" />
+    <input type="submit" value="Submit" />
+  </form>
+</div>
