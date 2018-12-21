@@ -103,5 +103,8 @@
       }
     }
   },
-  "defaultProject": "angular-schulung"
+  "defaultProject": "angular-schulung",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

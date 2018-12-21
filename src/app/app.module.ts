@@ -11,6 +11,12 @@ import { JokesComponent } from "./jokes/jokes.component";
 import { Page1Component } from "./page1/page1.component";
 import { Page2Component } from "./page2/page2.component";
 import { TodosModule } from "./todos/todos.module";
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,13 @@ import { TodosModule } from "./todos/todos.module";
     AppRoutingModule,
     ReactiveFormsModule,
 
-    TodosModule
+    TodosModule,
+
+    StoreModule.forRoot(reducers, { metaReducers }),
+
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

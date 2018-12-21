@@ -1,3 +1,18 @@
-<p>
-  todos-page works!
-</p>
+<h2>TODOs</h2>
+
+<div>
+  <ul>
+    <li
+      *ngFor="let todo of todos"
+      [ngClass]="{ isActive: todo.isActive }"
+      (click)="toggleTodo(todo)"
+    >
+      {{ todo.text }}
+    </li>
+  </ul>
+</div>
+
+<form [formGroup]="form" (submit)="submitTodo()">
+  <label for="todo-input">Add Todo: </label>
+  <input type="text" id="todo-input" formControlName="todo" />
+</form>
